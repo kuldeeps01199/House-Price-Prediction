@@ -4,7 +4,7 @@ import pickle
 
 app = Flask(__name__)
 data = pd.read_csv('Dataset/Output.csv')
-pipe = pickle.load(open("Model/Model.pkl", 'rb'))
+pipe = pickle.load(open("Model/Model(1).pkl", 'rb'))
 
 @app.route('/')
 def index():
