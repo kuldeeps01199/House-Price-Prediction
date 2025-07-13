@@ -8,27 +8,23 @@ A simple machine learning web app to predict house prices based on user input. T
 - Python, Flask
 - HTML, CSS
 - scikit-learn, pandas, numpy
+  
+## Structure
 
----
-
-## 📁 Project Structure
-main/
-├── main.py # Flask backend
+house-price-prediction/
+├── app.py                  # Flask app (backend logic)
+├── model.pkl               # Saved machine learning model
 ├── templates/
-│ ├── index.html # Frontend page
-│ └── styles.css # Styling
-├── dataset/
-│ ├── train.csv # Training data
-│ └── Output.csv # Predicted results
-└── Home Price prediction.ipynb # Jupyter Notebook
+│   └── index.html          # Frontend form (HTML)
+├── static/
+│   └── style.css           # Optional: CSS file for design
+├── dataset.csv             # Dataset used for training
+├── train_model.ipynb       # Jupyter Notebook for model training
+├── requirements.txt        # Python dependencies
+└── README.md               # Project description for GitHub
 
-## 🚀 How to Run
 
-# Install required packages
-pip install -r requirements.txt
 
-# Run the app
-python main.py
 
 ##📌 Features
 
