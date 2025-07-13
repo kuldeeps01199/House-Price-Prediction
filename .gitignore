@@ -1,0 +1,15 @@
+# Ignore virtual environments
+venv/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore model file
+Model/Model.pkl
+
+# Ignore test dataset
+dataset/test.csv
+
+
+

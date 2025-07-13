@@ -1,57 +1,64 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>House Price Prediction</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
         <h1>House Price Prediction</h1>
         <form action="/predict" method="post">
             <h2>Welcome to House Price Prediction Model!</h2>
+
             <div class="form-group">
                 <label for="beds">Beds:</label>
-                <select name="beds" id="beds">
-                    <option>Select number of bedrooms</option>
+                <select name="beds" id="beds" required>
+                    <option disabled {% if not request.form.get('beds') %}selected{% endif %}>Select number of bedrooms</option>
                     {% for bed in bedrooms %}
-                        <option value="{{ bed }}">{{ bed }}</option>
+                        <option value="{{ bed }}" {% if request.form.get('beds') == bed|string %}selected{% endif %}>{{ bed }}</option>
                     {% endfor %}
                 </select>
             </div>
+
             <div class="form-group">
                 <label for="baths">Baths:</label>
-                <select name="baths" id="baths">
-                    <option>Select number of bathrooms</option>
+                <select name="baths" id="baths" required>
+                    <option disabled {% if not request.form.get('baths') %}selected{% endif %}>Select number of bathrooms</option>
                     {% for bath in bathrooms %}
-                        <option value="{{ bath }}">{{ bath }}</option>
+                        <option value="{{ bath }}" {% if request.form.get('baths') == bath|string %}selected{% endif %}>{{ bath }}</option>
                     {% endfor %}
                 </select>
             </div>
+
             <div class="form-group">
                 <label for="size">Size:</label>
-                <select name="size" id="size">
-                    <option>Select size of the house</option>
+                <select name="size" id="size" required>
+                    <option disabled {% if not request.form.get('size') %}selected{% endif %}>Select size of the house</option>
                     {% for size in sizes %}
-                        <option value="{{ size }}">{{ size }}</option>
+                        <option value="{{ size }}" {% if request.form.get('size') == size|string %}selected{% endif %}>{{ size }}</option>
                     {% endfor %}
                 </select>
             </div>
+
             <div class="form-group">
                 <label for="zip_code">Zip Code:</label>
-                <select name="zip_code" id="zip_code">
-                    <option>Select zip code</option>
+                <select name="zip_code" id="zip_code" required>
+                    <option disabled {% if not request.form.get('zip_code') %}selected{% endif %}>Select zip code</option>
                     {% for zip_code in zip_codes %}
-                        <option value="{{ zip_code }}">{{ zip_code }}</option>
+                        <option value="{{ zip_code }}" {% if request.form.get('zip_code') == zip_code|string %}selected{% endif %}>{{ zip_code }}</option>
                     {% endfor %}
                 </select>
             </div>
+
             <button type="submit">Predict Price</button>
         </form>
 
         {% if prediction is not none %}
-            <h3>Predicted House Price: ${{ prediction }}</h3>
+            <h3>Predicted House Price: ₹{{ prediction }}</h3>
         {% endif %}
     </div>
 </body>
