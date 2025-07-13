@@ -26,7 +26,7 @@ house-price-prediction/
 
 
 
-##📌 Features
+## Features
 
 - Clean UI for entering house details
 - Real-time price prediction
