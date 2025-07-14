@@ -1,15 +1,6 @@
-# Ignore virtual environments
+# Ignore virtual environment
 venv/
 
-# Ignore Python cache files
-__pycache__/
+# Optional: ignore temporary files
 *.pyc
-
-# Ignore model file
-Model/Model.pkl
-
-# Ignore test dataset
-dataset/test.csv
-
-
-
+__pycache__/
